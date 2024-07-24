@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --border: 0, 0, 0; /* Defina o valor desejado */
+    --input: 50, 50, 50; /* Defina o valor desejado */
+    --ring: 100, 100, 100; /* Defina o valor desejado */
+    --background: 10, 10, 10; /* Defina o valor desejado */
+    --foreground: 255, 255, 255; /* Defina o valor desejado */
+    --primary: 0, 122, 255; /* Defina o valor desejado */
+    --primary-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --secondary: 255, 59, 48; /* Defina o valor desejado */
+    --secondary-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --destructive: 255, 69, 58; /* Defina o valor desejado */
+    --destructive-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --muted: 100, 100, 100; /* Defina o valor desejado */
+    --muted-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --accent: 255, 45, 85; /* Defina o valor desejado */
+    --accent-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --popover: 255, 255, 255; /* Defina o valor desejado */
+    --popover-foreground: 0, 0, 0; /* Defina o valor desejado */
+    --card: 0, 0, 0; /* Defina o valor desejado */
+    --card-foreground: 255, 255, 255; /* Defina o valor desejado */
+    --radius: 8px; /* Defina o valor desejado */
+  }
+  
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+/* Adicione isso ao seu arquivo de estilos global ou CSS Modules */
+.parallax {
+  /* A imagem de fundo */
+  background-image: url('./bg.jpg'); /* Substitua pelo caminho da sua imagem */
+  /* As propriedades para o efeito parallax */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Outras propriedades para garantir que a imagem ocupe o fundo inteiro */
+  height: auto; /* Ocupa a altura total da viewport */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* Garante que os efeitos não vazem para fora do container */
+}
+
+.parallax::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Cor de sobreposição (preto com 50% de opacidade) */
+  z-index: 1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2; /* Garante que o conteúdo fique acima da imagem de fundo */
+  color: white; /* Ajuste a cor do texto conforme necessário */
+}
+
+/* Efeito de desfoque na imagem de fundo */
+.parallax::before {
+  backdrop-filter: blur(10px); /* Ajuste o valor do desfoque conforme necessário */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidade com navegadores Webkit */
+}
